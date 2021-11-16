@@ -1,10 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
 
 type deck []string
 
-func newDeck() deck {
+func newDeck() (deck, error) {
 	cards := deck{}
 	cardSuites := []string{"Spade", "Diamond", "Heart", "Club"}
 	cardValues := []string{"Ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "Jack", "King", "queen"}
@@ -13,7 +17,8 @@ func newDeck() deck {
 			cards = append(cards, value+" of "+suit)
 		}
 	}
-	return cards
+	err := cards.toFile("deck")
+	return cards, err
 }
 
 func (d deck) deal(handSize int) (deck, deck) {
@@ -25,5 +30,12 @@ func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i+1, card)
 	}
+}
 
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",")
+}
+
+func (d deck) toFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0644)
 }

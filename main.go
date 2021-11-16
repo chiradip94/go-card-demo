@@ -2,12 +2,11 @@ package main
 
 import "fmt"
 
-var value1 string
-
 func main() {
-	card := newDeck()
-	hand := deck{}
-	fmt.Print(hand)
-	hand, card = card.deal(4)
-	hand.print()
+	card, err := newDeck()
+	if err != nil {
+		fmt.Println(err)
+	}
+	hand, card := card.deal(4)
+	fmt.Println(hand)
 }
