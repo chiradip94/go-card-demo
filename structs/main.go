@@ -22,5 +22,10 @@ func main() {
 			pincode: 1234567,
 		},
 	}
-	fmt.Printf("%+v", jim)
+	fmt.Printf("%+v\n", jim)
+	colours := map[string]string{
+		"red":  "colour1",
+		"blue": "colour2",
+	}
+	fmt.Println(colours)
 }
