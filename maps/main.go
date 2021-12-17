@@ -10,6 +10,9 @@ func main() {
 
 	//var colour map[string]string
 
-	colour := make(map[string]string)
+	colour := make(map[10]string)
+
+	colour[10] = "red"
+
 	fmt.Println(colour)
 }
