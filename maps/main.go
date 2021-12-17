@@ -14,5 +14,7 @@ func main() {
 
 	colour[10] = "red"
 
+	delete(colour, 10)
+
 	fmt.Println(colour)
 }
