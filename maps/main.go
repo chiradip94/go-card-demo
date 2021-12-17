@@ -10,7 +10,7 @@ func main() {
 
 	//var colour map[string]string
 
-	colour := make(map[10]string)
+	colour := make(map[int]string)
 
 	colour[10] = "red"
 
