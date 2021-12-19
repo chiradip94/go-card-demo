@@ -16,5 +16,15 @@ func main() {
 
 	delete(colour, 10)
 
-	fmt.Println(colour)
+	colour = map[int]string{
+		1: "color 1",
+		2: "color 2",
+	}
+	printMap(colour)
+}
+
+func printMap(m map[int]string) {
+	for k, v := range m {
+		fmt.Println("key: ", k, ", Value: ", v)
+	}
 }
